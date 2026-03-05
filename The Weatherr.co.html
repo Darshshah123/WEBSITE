@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<style>
+form {
+  border-radius: 5px;
+  background-color: #F5FDFF;
+  padding: 20px;
+}
+
+label {display: block;}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+<body>
+
+<h1>The Weatherr.co</h1>
+
+<form action="/action_page.php">
+  <label for="fname">"City"</label>
+  <input type="text" id="City" name="City" placeholder="City..">
+
+  <label for="lname">"State"</label>
+  <input type="text" id="State" name="State" placeholder="State..">
+
+  <label for="country">"Country"</label>
+  <select id="country" name="country">
+    <option value="australia">India</option>
+    <option value="canada">Canada</option>
+    <option value="usa">USA</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

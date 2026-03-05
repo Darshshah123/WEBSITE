@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Signal.re</title>
+<h1>Signal.re !!!</h1>
+
+<style>
+.signal {
+    width: 80px;
+    padding: 20px;
+    background: #333;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.light {
+    width: 60px;
+    height: 60px;
+    margin: 15px auto;
+    border-radius: 50%;
+    background-color: #111;
+    animation: traffic 6s infinite;
+}
+
+.red { animation-delay: 0s; }
+.yellow { animation-delay: 2s; }
+.green { animation-delay: 4s; }
+
+@keyframes traffic {
+    0%   { background-color: #111; }
+    20%  { background-color: currentColor; }
+    40%  { background-color: #111; }
+    100% { background-color: #111; }
+}
+
+.red { color: red; }
+.yellow { color: yellow; }
+.green { color: green; }
+
+</style>
+</head>
+
+<body>
+<div class="signal">
+    <div class="light red"></div>
+    <div class="light yellow"></div>
+    <div class="light green"></div>
+</div>
+</body>
+</html>
