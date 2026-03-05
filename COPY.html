@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Sports E.co</title>
+</head>
+<body>
+    <style>
+body {
+
+font-family: Arial,
+text-align: center;
+background-color: aliceblue;
+}
+h1 {
+color: black;
+}
+.item {
+background-color: #E0EAEC;
+border: 2px solid #333;
+padding: 10px;
+margin: 10px;
+display: inline-block;
+}
+.cart {
+margin-top: 20px;
+padding: 10px;
+background-color: #Black;
+display: inline-block;
+border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+
+<h1>Welcome to " Shoppers Stop 'Sports E.com' "
+
+<p>Click the button to add an item to the cart.</p>
+
+<div class="item">
+ <p>
+<img src="https://tse2.mm.bing.net/th/id/OIP.xFxi6H5pBWVKLWtMLkMNywHaEO?cb=ucfimg2&pid=ImgDet&ucfimg=1&w=474&h=270&rs=1&o=7&rm=3"height=100
+width=100>  Football-$10</p>
+<button onclick="Add to Cart('Football',600)">Add to Cart</button>
+</div>
+
+
+
+
+<div class="item">
+  <p>
+<img src="https://i.pinimg.com/originals/aa/6d/c3/aa6dc372e01c626704b15f8c8198a677.jpg"height=100
+width=100>  Basketball-$10</p>
+<button onclick="Add to Cart('Basketball',600)">Add to Cart</button>
+</div>
+
+
+
+
+<div class="Cart">
+<h3>Shopping Cart</h3>
+<p id="carList">Cart is empty</p>
+<h3>Total: $<span
+id="totalAmount">0</span></h3>
+</div>
+
+
+
+
+<script>
+let totalAmount = 0;
+fuinction addTpCart(item, price) {
+let cart = document.getElementByld("cartlist");
+let total = 
+document.getElementByld("totalAmount");
+
+//Update cart items
+if( cart.innerHTML === "Cart is empty") {
+cart.innerHTML +=","+item;
+}
+//Update total amount
+totalAmount += price;
+total.innerHTML = totalAmount;
+}
+</script>
+</body>
+</html>
+
+</body>
+</html>
+
+
+
+
+
+

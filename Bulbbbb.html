@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+
+text-align: center;
+font-family: arial;
+background-color:E9F2F2;
+}
+
+img{ 
+width;200px;
+margin:20px;
+}
+
+button{
+
+padding: 10px 20px;
+font-size: 16px;
+margin:10px;
+cursor: pointer;
+
+}
+
+</style>
+</head>
+<body>
+
+<h2>💡 Light ON / OFF Bulb by Kabir Solankiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h2>
+
+    <img id="bulb"
+       src="https://img.freepik.com/premium-psd/classic-light-bulb_191095-59091.jpg	">
+
+  <br>
+
+  <button onclick="turnOn()">ON</button>
+  <button onclick="turnOff()">OFF</button>
+
+  <script>
+    function turnOn() {
+      document.getElementById("bulb").src =
+        "https://www.w3schools.com/js/pic_bulbon.gif";
+    }
+
+    function turnOff() {
+      document.getElementById("bulb").src =
+        "https://www.w3schools.com/js/pic_bulboff.gif";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cure Care Hub.com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #DCECE7;
+    }
+    h1 {
+      color: black;
+    }
+    .item {
+      background-color: #DCECE7;
+      border: 2px solid #333;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+    }
+    .cart {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #DCECE7;
+      display: inline-block;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <h1> Cure Care.com</h1>
+  <h2>Your health, delivered with care.</h2>
+  <p>Click the button to add an item to the cart.</p>
+
+  <div class="item">
+    <p>
+      <img src="https://thumbs.dreamstime.com/b/bulk-paracetamol-tablets-large-pack-effective-pain-fever-relief-pharmaceuticalgrade-medicine-convenient-offers-354069975.jpg" height="100" width="100">
+      <b>Paracetamol - ₹1000 per box</b>
+    </p>
+    <button onclick="addToCart('Paracetamol', 1000)">Add to Cart</button>
+  </div>    
+
+  <div class="cart">
+    <h3>Shopping Cart</h3>
+    <p id="cartList">Cart is empty</p>
+    <p><b>Total Amount: ₹<span id="totalAmount">0</span></b></p>
+  </div>
+
+  <script>
+    let totalAmount = 0;
+
+    function addToCart(item, price) {
+      let cart = document.getElementById("cartList");
+      let total = document.getElementById("totalAmount");
+
+      // Update cart items
+      if (cart.innerHTML === "Cart is empty") {
+        cart.innerHTML = item;
+      } else {
+        cart.innerHTML += ", " + item;
+      }
+
+      // Update total amount
+      totalAmount += price;
+      total.innerHTML = totalAmount;
+    }
+  </script>
+
+</body>
+</html>

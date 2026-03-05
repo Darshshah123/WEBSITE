@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DARSH shopping cart 2025</title>
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --primary: #ff6f61;
+      --primary-dark: #e65c50;
+      --bg: #fff8f0;
+      --text: #333;
+      --nav: #222;
+      --card: #ffffff;
+      --muted: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #ffa07a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 64px 20px 40px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 2.4rem;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+    }
+    .nav-brand {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      font-size: 1rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #333a;
+    }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid #fff3;
+      color: #fff;
+      border-radius: 6px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: absolute;
+        left: 0; right: 0;
+        top: 100%;
+        background: var(--nav);
+        flex-direction: column;
+        padding: 10px;
+        display: none;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 12px;
+      }
+    }
+
+    /* Sections */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+    section {
+      background: var(--card);
+      border: 1px solid #00000010;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 18px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+    .muted {
+      color: var(--muted);
+    }
+
+    /* Schedule list */
+    .schedule-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .schedule-card {
+      border: 1px solid #00000010;
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+    }
+    .schedule-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    @media (max-width: 800px) {
+      .schedule-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #00000010;
+      display: none;
+      object-fit: cover;
+      aspect-ratio: 3 / 2;
+      background: #f7f7f7;
+    }
+    .gallery img.active {
+      display: block;
+    }
+    .gallery-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn.secondary {
+      background: #444;
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Contact */
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 16px;
+    }
+    .contact-card {
+      border: 1px solid #00000010;
+      border-radius: 12px;
+      padding: 16px;
+      background: #fff;
+    }
+    @media (max-width: 900px) {
+      .contact-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--nav);
+      color: #fff;
+      text-align: center;
+      padding: 20px 16px;
+    }
+
+    /* Back to top */
+    #backToTop {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: none;
+    }
+    #backToTop:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>DARSH shopping cart</h1>
+    <p>Celebrate Joy, Music, and Togetherness</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">Spring Festival</div>
+      <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#Electronics">Electronics</a>
+        <a href="#Fashion">Fashion</a>
+        <a href="#Furniture">Furniture</a>
+        <a href="#Grocery">Grocery</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main>
+    <section id="home" aria-label="Home">
+      <h2>Welcome</h2>
+      <p>Join us for three days of celebration, culture, and community spirit! Experience music, dance, food, art, and unforgettable moments with friends and family.</p>
+      <p class="muted">Scroll down to explore the festival highlights and plan your visit.</p>
+    </section>
+
+    <section id="about" aria-label="About the festival">
+      <h2>About the festival</h2>
+      <p>The Spring Festival 2025 brings together music, dance, food, and art to celebrate the vibrant spirit of our community. Enjoy performances, exhibitions, and delicious cuisine in a joyful atmosphere across three immersive days.</p>
+      <p class="muted">All events are family-friendly and open to the public.</p>
+    </section>
+
+    <section id="schedule" aria-label="Festival schedule">
+      <h2>Schedule</h2>
+      <div class="schedule-list">
+        <div class="schedule-card">
+          <h3>Day 1</h3>
+          <p><strong>Music Concert</strong> & <strong>Dance Performances</strong> — Opening night featuring local bands, classical recitals, and contemporary dance.</p>
+        </div>
+        <div class="schedule-card">
+          <h3>Day 2</h3>
+          <p><strong>Food Fair</strong> & <strong>Cultural Programs</strong> — Street food, artisan stalls, and folk theatre celebrating regional traditions.</p>
+        </div>
+        <div class="schedule-card">
+          <h3>Day 3</h3>
+          <p><strong>Art Exhibition</strong> & <strong>Closing Ceremony</strong> — Visual arts showcase, live painting, and a heartwarming finale.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" aria-label="Gallery">
+      <h2>Gallery</h2>
+      <div class="gallery" id="galleryStrip">
+        <img src="https://via.placeholder.com/600x400?text=Image+1" alt="Gallery image 1" class="active" />
+        <img src="https://via.placeholder.com/600x400?text=Image+2" alt="Gallery image 2" />
+        <img src="https://via.placeholder.com/600x400?text=Image+3" alt="Gallery image 3" />
+        <img src="https://via.placeholder.com/600x400?text=Image+4" alt="Gallery image 4" />
+      </div>
+      <div class="gallery-controls">
+        <button class="btn" id="prevBtn">Previous</button>
+        <button class="btn" id="nextBtn">Next</button>
+        <button class="btn secondary" id="autoBtn">Auto Play</button>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact">
+      <h2>Contact</h2>
+      <div class="contact-row">
+        <div class="contact-card">
+          <p><strong>Email:</strong> info@springfestival2025.com</p>
+          <p><strong>Phone:</strong> +91-9876543210</p>
+          <p class="muted">For stall bookings or performance slots, reach out during business hours.</p>
+        </div>
+        <div class="contact-card">
+          <p><strong>Venue:</strong> Central Park Arena</p>
+          <p><strong>Dates:</strong> 21–23 March 2025</p>
+          <p class="muted">Parking available. Public transport recommended.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Spring Festival. All rights reserved.</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Back to top">↑ Top</button>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Smooth scrolling for nav links (enhanced behavior)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          navLinks.classList.remove('open'); // close mobile menu
+          const top = target.getBoundingClientRect().top + window.scrollY - 60; // offset for sticky nav
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Scroll spy: highlight active nav
+    const sections = Array.from(document.querySelectorAll('main section'));
+    const links = Array.from(document.querySelectorAll('.nav-links a'));
+    const setActiveLink = (id) => {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0.2 }
+    );
+    sections.forEach(sec => observer.observe(sec));
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Simple gallery slider
+    const images = Array.from(document.querySelectorAll('#galleryStrip img'));
+    let current = 0;
+    let autoTimer = null;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', nextImage);
+    document.getElementById('prevBtn').addEventListener('click', prevImage);
+    document.getElementById('autoBtn').addEventListener('click', () => {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+        document.getElementById('autoBtn').textContent = 'Auto Play';
+      } else {
+        autoTimer = setInterval(nextImage, 2500);
+        document.getElementById('autoBtn').textContent = 'Pause';
+      }
+    });
+
+    // Keyboard accessibility for gallery
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    });
+  </script>
+</body>
+</html>

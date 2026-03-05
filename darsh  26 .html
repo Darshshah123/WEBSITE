@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>Shopping cart</title>
+</head>
+<body>
+<style>
+body {
+fort family :Arial, sans-serif;
+text-align: center;
+background-color: aliceblue;
+}
+h1 {
+color: blue;
+}
+.item {
+background-color: #ffa07a;
+border: 2px solid #333;
+padding: 10px;
+margin: 10px;
+display: inline-block;
+}
+.cart {
+margin-top: 20px;
+padding: 10px;
+background-color: #aaf0d1;
+display: inline-block;
+border-radius: 10px;
+
+.sale {
+background:red;
+color:white;
+text-align:center;
+padding:20px;
+font-size:24px;
+animation: blink 1s infinite alternate;
+}
+.img{
+width:100px;
+height:100px;
+}
+@keyframes img {
+from { opacity:1;}
+to { opacity:0.5;}
+}
+
+</style>
+</head>
+<body>
+
+<h1>welcome to sports shop!</h1>
+<p>click the button to add an item to the cart.</p> 
+<div class="item">
+<p>
+<img src="https://th.bing.com/th/id/R.201e17a2f3dd142df854c55602cc70a7?rik=Ps4LsFo8eSlnVQ&riu=http%3a%2f%2ffullhdwall.com%2fwp-content%2fuploads%2f2016%2f01%2fNice-Basketball.jpeg&ehk=eavLwfkUXEXohqHRC9IYxwjrTfBeNg4V4nugGAHijz8%3d&risl=&pid=ImgRaw&r=0"height=100 width=100  Backetball=₹999></p>
+<button onclick="addToCart('Basketball',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" Cricket=₹999></p>
+<button onclick="addToCart('Cricket',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" volleyball=₹999></p>
+<button onclick="addToCart('volleyball',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="item">
+<p>
+<img src="https://tse1.mm.bing.net/th/id/OIP.bcUTHL2l6Db7iz1H4kNFkQHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"height="100" width="100" football=₹999></p>
+<button onclick="addToCart('football',999)">Add to Cart</button>
+</div>
+
+<div class="cart">
+    <h3>Shopping Cart</h3>
+    <p id="cartList">Cart is empty</p>
+    <h3>Total: $<span id="totalAmount">0</span></h3>
+</botton>
+</div>
+
+<script>
+let totalAmount = 0;
+function addToCart(item, price) {
+    let cart = document.getElementById("cartList");
+    let total = document.getElementById("totalAmount");
+    // Update cart items
+    if (cart.innerHTML === "Cart is empty") {
+        cart.innerHTML = item;
+    } else {
+        cart.innerHTML += ", " + item;
+    }
+    // Update total amount
+    totalAmount += price;
+    total.innerHTML = totalAmount;
+}
+</script>
+</body>
+</html>
+
+</body>
+</html>

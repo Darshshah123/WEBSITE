@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>The Solar System</title>
+</head>
+<body>
+<h1>The solar system</h1>
+<p>The solar system includes the sun and everything that orbits it-planets, moons, asterioids and comet. The sun is at the center and  gives light  and heat.</p1>
+<h2>Planets</h2>
+<ul>
+<Li><b>Mercury</b>-closest to the sun</li>
+<Li><b>venus</b>-very hot and cloudy</li>
+<Li><b>Earth</b>-our home with life</li>
+<Li><b>Mars</b>-called the red planet</li>
+<Li><b>Jupiter</b>-largest planet</li>
+<Li><b>saturn</b>-has beautiful rings</li>
+<Li><b>uranus</b>-tiltle and cold</li>
+<Li><b>Neptune</b>-farthest and windy</li>
+</ul>
+<h2>other object</h2>
+<ol>
+<Li><b>Moon</b>-orbit planets</li>
+<Li><b>Asteroids</b>-rocky bodies</li>
+<Li><b>Comets</b>-icy and have tails</li>
+</ul>
+<p>the solar system
