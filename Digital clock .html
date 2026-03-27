@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Live Clock</title>
+<style>
+body {
+font-family: Arial;
+text-align: center;
+padding: 50px;
+background: #e0f7fa;
+}
+#clock {
+font-size: 48px;
+color: #00695c;
+padding: 20px;
+border-radius: 10px;
+background: white;
+}
+</style>
+</head>
+<body>
+<h1>My Digital Clock</h1>
+<div id="clock">00:00:00</div>
+<script>
+function updateClock() {
+var now = new Date();
+var time = now.toLocaleTimeString(); document.getElementById("clock").innerHTML = time;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+</body>
+</html>

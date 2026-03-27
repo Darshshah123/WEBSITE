@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Typing Speed Challenge</title>
+<style>
+body {
+font-family: Arial;
+background: #e3f2fd;
+text-align: center;
+}
+
+.box {
+background: white;
+width: 400px;
+margin: 40px auto;
+padding: 20px;
+border-radius: 10px;
+}
+
+textarea {
+width: 90%;
+height: 80px;
+font-size: 16px;
+}
+
+button {
+padding: 8px 15px;
+margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>⌨️ Typing Speed Challenge</h2>
+
+<p id="text">
+Coding is fun and helps us think logically
+</p>
+
+<textarea id="input" placeholder="Start typing here..."></textarea><br>
+
+<button onclick="startTest()">Start</button>
+<button onclick="checkSpeed()">Check Speed</button>
+
+<h3 id="result"></h3>
+</div>
+
+<script>
+var startTime;
+
+function startTest() {
+document.getElementById("input").value = "";
+startTime = new Date().getTime();
+}
+
+function checkSpeed() {
+var endTime = new Date().getTime();
+var totalTime = (endTime
+startTime) / 1000;
+var typedText = document.getElementById("input").value;
+var words = typedText.split(" ").length;
+
+var speed = Math.round((words / totalTime) * 60);
+
+document.getElementById("result").innerHTML =
+"Typing Speed: " + speed + " words per minute";
+}
+</script>
+
+</body>
+</html>
